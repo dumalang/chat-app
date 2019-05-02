@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <title>Chat App - {{ title }}</title>
+    <link rel="icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+
+<div class="chat">
+    <div class="chat__sidebar"></div>
+    <div class="chat__main">
+        <div id="messages" class="chat__messages"></div>
+
+        <div class="compose">
+            <form id="message-form">
+                <input name="message" placeholder="Message" type="text">
+                <button type="submit">Send</button>
+            </form>
+            <button id="send-location">Send Location</button>
+        </div>
+    </div>
+</div>
+
+{{>message_template}}
+
+<script src="/plugins/requirejs/require.js" data-main="chat-app/index.js"></script>
+</body>
+</html>
