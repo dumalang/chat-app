@@ -1,5 +1,6 @@
 const Message = require('../Utils/Message')
 const User = require('../Utils/User')
+const Bot = require('../Utils/Bot')
 const Room = require('../Utils/Room')
 const {addUser} = require('../Utils/users')
 
@@ -17,7 +18,7 @@ const joinRoom = (io, socket) => {
 
         socket.join(user.room)
 
-        const bot = new User('', 'ChatBot');
+        const bot = new Bot;
 
         socket.emit('message', new Message("Welcome to chat", bot))
 
