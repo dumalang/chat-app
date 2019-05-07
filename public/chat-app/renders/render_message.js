@@ -1,10 +1,13 @@
 define([
     '../utilities/message_transformer',
-    'mustache'
-], (messageTransformer, Mustache) => {
+    'mustache',
+    '../dom',
+    './autoscroll'
+], (messageTransformer, Mustache, {$messages, $messageTemplate}, autoscroll) => {
+
     return (message) => {
-        const $messages = document.querySelector('#messages')
-        const messageTemplate = document.querySelector('#message-template').innerHTML
+
+        const messageTemplate = $messageTemplate.innerHTML
 
         Mustache.tags = ["[[", "]]"];
 
@@ -14,5 +17,9 @@ define([
         })
 
         $messages.insertAdjacentHTML('beforeend', html)
+
+        autoscroll()
+
     }
+
 });
