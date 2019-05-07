@@ -1,5 +1,6 @@
 const Message = require('../Utils/Message')
 const User = require('../Utils/User')
+const Room = require('../Utils/Room')
 const {addUser} = require('../Utils/users')
 
 const joinRoom = (io, socket) => {
@@ -21,6 +22,8 @@ const joinRoom = (io, socket) => {
         socket.emit('message', new Message("Welcome to chat", bot))
 
         socket.broadcast.to(user.room).emit('message', new Message(`${user.username} joined the room`, bot))
+
+        io.to(user.room).emit('roomData', new Room(user.room))
 
         callback(undefined, user)
 

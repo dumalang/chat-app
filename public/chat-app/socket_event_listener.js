@@ -1,8 +1,10 @@
 define([
     './renders/render_message',
+    './renders/render_sidebar',
     'qs'
 ], (
     renderMessage,
+    renderSidebar,
     Qs
 ) => {
 
@@ -15,6 +17,7 @@ define([
                 location = '/'
             }
         })
+        socket.on('roomData', renderSidebar)
     }
 
 })

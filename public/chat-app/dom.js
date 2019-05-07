@@ -6,6 +6,8 @@ define([], () => {
     const $messageFormInput = $messageForm.querySelector('input')
     const $messageFormButton = $messageForm.querySelector('button')
     const $sendLocationButton = document.querySelector('#send-location')
+    const $sidebar = document.querySelector('#sidebar')
+    const $sidebarTemplate = document.querySelector('#sidebar-template')
 
     return {
         $messages,
@@ -13,7 +15,9 @@ define([], () => {
         $messageForm,
         $messageFormInput,
         $messageFormButton,
-        $sendLocationButton
+        $sendLocationButton,
+        $sidebar,
+        $sidebarTemplate
     }
 
 });
